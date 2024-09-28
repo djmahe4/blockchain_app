@@ -31,7 +31,7 @@ def save_data(blockchain, balances):
     for transaction in blockchain:
         print(transaction)
         #cursor.execute('INSERT INTO blockchain VALUES (NULL, ?, ?, ?)', transaction)
-        cursor.execute('INSERT INTO blockchain VALUES (NULL, :sender, :receiver, :amount)', transaction)
+        cursor.execute('INSERT INTO blockchain VALUES (NULL, :index,:sender, :receiver, :amount)', transaction)
     cursor.execute('DELETE FROM balances')
     for user, balance in balances.items():
         #cursor.execute('INSERT INTO balances VALUES (?, ?)', (user, balance))
